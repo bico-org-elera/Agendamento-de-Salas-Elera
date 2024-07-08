@@ -1,3 +1,28 @@
 <template>
-    
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sala</th>
+                    <template for:each={hours} for:item="hour">
+                        <th key={hour}>{hour}</th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={salas} for:item="sala">
+                    <tr key={sala.Id} class="salas">
+                        <td>{sala.Name}</td>
+                        <template for:each={hours} for:item="hour">
+                            <td key={`${sala.Id}-${hour}`} 
+                                data-sala-id={sala.Id}
+                                data-hour={hour} 
+                                class={agendaOcupada(sala.Id, hour) ? 'ocupada' : 'disponivel'}>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
 </template>

@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th, .salas {
+    background-color: #2F5A7D;
+    color: white;
+}
+
+td {
+    min-width: 80px; 
+}
