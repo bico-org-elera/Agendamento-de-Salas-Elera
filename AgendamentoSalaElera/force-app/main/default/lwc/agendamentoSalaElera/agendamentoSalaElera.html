@@ -1,28 +1,32 @@
 <template>
     <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Sala</th>
-                    <template for:each={hours} for:item="hour">
-                        <th key={hour}>{hour}</th>
-                    </template>
-                </tr>
-            </thead>
-            <tbody>
-                <template for:each={salas} for:item="sala">
-                    <tr key={sala.Id} class="salas">
-                        <td>{sala.Name}</td>
+        <lightning-input type="date" label="Data da Reunião" value={data} onchange={handleDateChange}></lightning-input>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="sala-title">Sala</th>
                         <template for:each={hours} for:item="hour">
-                            <td key={`${sala.Id}-${hour}`} 
-                                data-sala-id={sala.Id}
-                                data-hour={hour} 
-                                class={agendaOcupada(sala.Id, hour) ? 'ocupada' : 'disponivel'}>
-                            </td>
+                            <th class="hours" key={hour}>{hour}</th>
                         </template>
                     </tr>
-                </template>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <template for:each={salas} for:item="sala">
+                        <tr key={sala.Id} class="salas">
+                            <td class="sala-name">{sala.Name}</td>
+                            <template for:each={hours} for:item="hour">
+                                <td key={hour} 
+                                    data-sala-id={sala.Id}
+                                    data-hour={hour} 
+                                    class="cll">
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>

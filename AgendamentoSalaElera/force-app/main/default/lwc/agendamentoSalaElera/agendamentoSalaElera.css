@@ -1,26 +1,61 @@
 .container {
     width: 100%;
     margin: 20px auto;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-wrapper {
     overflow-x: auto;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #2F5A7D;
+    border-radius: 10px;
 }
 
 table {
     width: 100%;
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif;
+    border-collapse: collapse;
 }
 
 th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    white-space: nowrap; /* Para manter o conteúdo em uma linha */
 }
 
-th, .salas {
+th {
     background-color: #2F5A7D;
     color: white;
 }
 
 td {
-    min-width: 80px; 
+    min-width: 80px;
+}
+
+.sala-name, .sala-title {
+    position: sticky;
+    left: 0;
+    color: white;
+    background: #2F5A7D;
+    z-index: 2;
+}
+
+.ocupada {
+    background-color: #ffcccc;
+}
+
+.disponivel {
+    background-color: #ccffcc;
 }
